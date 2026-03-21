@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from domain.entities.bronze.bronze_entity import BronzeEntity
-from infrastructure.entities.enumerations import BoxOfficeScope
+from domain.entities.silver.enumerations import BoxOfficeScope
 
 @dataclass
 class BoxOfficeMetricsBronzeMovie(BronzeEntity):

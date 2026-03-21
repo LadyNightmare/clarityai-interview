@@ -2,7 +2,7 @@ import os
 
 from domain.entities.bronze.entity_extractor import EntityExtractor
 from infrastructure.entities.bronze.box_office_metrics_bronze_movie import BoxOfficeMetricsBronzeMovie
-from infrastructure.entities.enumerations import BoxOfficeScope
+from domain.entities.silver.enumerations import BoxOfficeScope
 
 import csv
 

@@ -1,0 +1,15 @@
+[project]
+name = "clarityai-interview"
+version = "0.1.0"
+description = "Clarity AI interview"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

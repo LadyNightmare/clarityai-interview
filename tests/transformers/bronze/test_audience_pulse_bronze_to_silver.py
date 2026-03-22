@@ -5,10 +5,10 @@ from infrastructure.entities.bronze.audience_pulse_bronze_movie import (
     AudiencePulseBronzeMovie,
 )
 from domain.entities.silver.enumerations import BoxOfficeScope
-from infrastructure.transformers.audience_pulse_bronze_to_silver_box_office import (
+from infrastructure.transformers.bronze.audience_pulse_bronze_to_silver_box_office import (
     AudiencePulseBronzeToSilverBoxOfficeTransformer,
 )
-from infrastructure.transformers.audience_pulse_bronze_to_silver_score import (
+from infrastructure.transformers.bronze.audience_pulse_bronze_to_silver_score import (
     AudiencePulseBronzeToSilverScoreTransformer,
 )
 

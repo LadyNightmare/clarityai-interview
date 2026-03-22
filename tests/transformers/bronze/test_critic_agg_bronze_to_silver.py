@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from domain.entities.silver.enumerations import ScoreSource, Source
 from infrastructure.entities.bronze.critic_agg_bronze_movie import CriticAggBronzeMovie
-from infrastructure.transformers.critic_agg_bronze_to_silver import (
+from infrastructure.transformers.bronze.critic_agg_bronze_to_silver import (
     CriticAggBronzeToSilverTransformer,
 )
 

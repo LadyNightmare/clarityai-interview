@@ -8,10 +8,10 @@ from infrastructure.entities.bronze.box_office_metrics_bronze_movie import (
     BoxOfficeMetricsBronzeMovie,
 )
 from domain.entities.silver.enumerations import BoxOfficeScope
-from infrastructure.transformers.box_office_metrics_bronze_to_silver_box_office import (
+from infrastructure.transformers.bronze.box_office_metrics_bronze_to_silver_box_office import (
     BoxOfficeMetricsBronzeToSilverBoxOfficeTransformer,
 )
-from infrastructure.transformers.box_office_metrics_bronze_to_silver_financials import (
+from infrastructure.transformers.bronze.box_office_metrics_bronze_to_silver_financials import (
     BoxOfficeMetricsBronzeToSilverFinancialsTransformer,
 )
 

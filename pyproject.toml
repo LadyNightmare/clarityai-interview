@@ -3,12 +3,12 @@ name = "clarityai-interview"
 version = "0.1.0"
 description = "Clarity AI interview"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.9, <3.10"
 dependencies = []
 
 [dependency-groups]
 dev = [
-    "pytest>=8.4.2",
+    "pytest>=8.4.2, <9.0.0",
 ]
 
 [tool.pytest.ini_options]

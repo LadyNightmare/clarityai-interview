@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: clarityai-interview:latest
+    volumes:
+      - ./data:/app/data
+  unit_tests:
+    image: clarityai-interview:test
+    profiles: [cli-only]
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+      pull: false
+    working_dir: /app
+    entrypoint: ["python", "-m", "pytest", "tests", "-v"]

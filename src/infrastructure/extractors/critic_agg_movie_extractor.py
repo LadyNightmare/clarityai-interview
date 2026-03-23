@@ -3,6 +3,7 @@ import os
 
 from domain.entities.bronze.entity_extractor import EntityExtractor
 from infrastructure.entities.bronze.critic_agg_bronze_movie import CriticAggBronzeMovie
+from domain.entities.exceptions.formatting_error import FormattingError
 
 class CriticAggMovieExtractor(EntityExtractor[CriticAggBronzeMovie]):
     def get_entities(self) -> list[CriticAggBronzeMovie]:
@@ -22,5 +23,11 @@ class CriticAggMovieExtractor(EntityExtractor[CriticAggBronzeMovie]):
                     for movie in movie_data
                 ]
         except FileNotFoundError as e:
-            self._logger.error(f"Error reading CSV file: {e}")
-            raise Exception(f"Error reading CSV file: {e}")
+            self._logger.error(f"Error reading CSV file, file not found: {e}")
+            raise FileNotFoundError(f"Error reading CSV file: {e}")
+        except KeyError as e:
+            self._logger.error(f"Error reading CSV file, key error: {e}")
+            raise KeyError(f"Error reading CSV file: {e}")
+        except ValueError as e:
+            self._logger.error(f"Error reading CSV file, formatting error: {e}")
+            raise FormattingError(f"Error reading CSV file: {e}")

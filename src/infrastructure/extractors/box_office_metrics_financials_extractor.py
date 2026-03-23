@@ -3,6 +3,7 @@ import os
 from domain.entities.bronze.entity_extractor import EntityExtractor
 from infrastructure.entities.bronze.box_office_metrics_bronze_financials import BoxOfficeMetricsBronzeMovieFinancials
 import csv
+from domain.entities.exceptions.formatting_error import FormattingError
 
 class BoxOfficeMetricsMovieFinancialsExtractor(EntityExtractor[BoxOfficeMetricsBronzeMovieFinancials]):
     def get_entities(self) -> list[BoxOfficeMetricsBronzeMovieFinancials]:
@@ -21,5 +22,11 @@ class BoxOfficeMetricsMovieFinancialsExtractor(EntityExtractor[BoxOfficeMetricsB
                     for movie in movie_data
                 ]
         except FileNotFoundError as e:
-            self._logger.error(f"Error reading JSON file: {e}")
-            raise Exception(f"Error reading JSON file: {e}")
+            self._logger.error(f"Error reading JSON file, file not found: {e}")
+            raise FileNotFoundError(f"Error reading JSON file: {e}")
+        except KeyError as e:
+            self._logger.error(f"Error reading JSON file, key error: {e}")
+            raise KeyError(f"Error reading JSON file: {e}")
+        except ValueError as e:
+            self._logger.error(f"Error reading JSON file, formatting error: {e}")
+            raise FormattingError(f"Error reading JSON file: {e}")

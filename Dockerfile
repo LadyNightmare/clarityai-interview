@@ -18,7 +18,7 @@ WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen
     
-FROM python:3.13-slim AS runtime
+FROM python:3.9-slim AS runtime
 ENV PATH="/app/.venv/bin:$PATH"
 RUN groupadd -g 1001 appgroup && \
     useradd -u 1001 -g appgroup -m -d /app -s /bin/false appuser

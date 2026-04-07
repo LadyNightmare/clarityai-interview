@@ -10,15 +10,14 @@ class CriticAggMovieExtractor(EntityExtractor[CriticAggBronzeMovie]):
         file_path = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "provider1.csv")
         try:
             with open(file_path, newline="") as f:
-                movie_data = csv.reader(f)
-                header = next(movie_data)
+                movie_data = csv.DictReader(f)
                 return [
                     CriticAggBronzeMovie(
-                        movie_title=str(movie[0]),
-                        release_year=int(movie[1]),
-                        critic_score_percentage=float(movie[2]),
-                        top_critic_score=float(movie[3]),
-                        total_critic_reviews_counted=int(movie[4]),
+                        movie_title=str(movie["movie_title"]),
+                        release_year=int(movie["release_year"]),
+                        critic_score_percentage=float(movie["critic_score_percentage"]),
+                        top_critic_score=float(movie["top_critic_score"]),
+                        total_critic_reviews_counted=int(movie["total_critic_reviews_counted"]),
                     )
                     for movie in movie_data
                 ]
